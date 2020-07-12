@@ -60,15 +60,16 @@ export default {
                     btn.setAttribute('disabled', true);
                 }
           document.getElementById('gameStart').removeAttribute('disabled')
-          //let button = e.target
-          //window.console.log(this.src)
-          //let resultNum = parseInt(this.imgList.indexOf(this.src), 10)
-          //let selectNum = parseInt(button.value, 10) /* 第一引数に渡した値を10進数に変換して返す */
-          //let kekkaNum = this.decisionJanken(selectNum, resultNum)
+          let button = event.target
+          window.console.log(this.src)
+          let resultNum = parseInt(this.imgList.indexOf(this.src), 10)
+          let selectNum = parseInt(button.value, 10) /* 第一引数に渡した値を10進数に変換して返す */
+          let kekkaNum = this.decisionJanken(selectNum, resultNum)
 
-          //window.console.log('勝ち負け(0 は負け, 1は勝ち,2は引き分け)→' + this.decisionJanken(selectNum, resultNum))
+          window.console.log('勝ち負け(0 は負け, 1は勝ち,2は引き分け)→' + kekkaNum)
       },
       decisionJanken(myHand, cpuHand) {
+          this.$store.commit('decisionJanken','result')
                 let result = 0; // 0 は負け, 1は勝ち,2は引き分け
  
                 switch(myHand) {
